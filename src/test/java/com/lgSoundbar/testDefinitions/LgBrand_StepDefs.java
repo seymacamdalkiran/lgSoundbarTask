@@ -20,11 +20,16 @@ LgBrandPage lgBrandPage=new LgBrandPage();
     }
     @When("Select lg brand xheckbox")
     public void select_lg_brand_xheckbox() {
-        BrowserUtils.clickWithJS(lgBrandPage.lgBrand);
+        try {
+            BrowserUtils.clickWithJS(lgBrandPage.lgBrand);
+        } catch (Exception e) {
+            Driver.get().navigate().refresh();
+            select_lg_brand_xheckbox();
+        }
     }
     @When("Read product price and name")
     public void read_product_price_and_name() {
-        lgBrandPage.sortProduct(lgBrandPage.productNames);
+        lgBrandPage.sortProduct1(lgBrandPage.productNames);
     }
     @When("Print product price and name in desc order of price via code.")
     public void print_product_price_and_name_in_desc_order_of_price_via_code() {
