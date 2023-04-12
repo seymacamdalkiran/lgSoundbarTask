@@ -89,7 +89,7 @@ public class LgBrandPage extends BasePage{
             for (int k = 0; k < listValue.size() ; k++) {
                 if(list.get(k).startsWith(s)){
                     result.add(list.get(k));
-                    list.remove(list.get(k));
+                    list.set(k,"ok");
                     break;
                 }
             }
